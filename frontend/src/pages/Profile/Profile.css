@@ -1,0 +1,88 @@
+/* frontend/src/pages/Profile.css */
+
+/* Container and Layout */
+.profile-container {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Sidebar Menu (col-3) */
+  .profile-sidebar {
+    padding: 1rem;
+  }
+  
+  .profile-sidebar .sticky-top {
+    top: 1rem;
+  }
+  
+  .profile-sidebar h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .profile-sidebar .nav-link {
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .profile-sidebar .nav-link:hover {
+    background-color: #f5f5f5;
+    color: #000;
+  }
+  
+  .profile-sidebar .nav-link.active {
+    background-color: #000;
+    color: #fff !important;
+    font-weight: 500;
+  }
+  
+  /* Main Content (col-6) */
+  .profile-main {
+    padding: 1rem;
+  }
+  
+  .profile-main .nav-tabs {
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-main .nav-link {
+    color: #555;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0;
+    transition: color 0.2s;
+  }
+  
+  .profile-main .nav-link:hover {
+    color: #000;
+  }
+  
+  .profile-main .nav-link.active {
+    color: #000;
+    font-weight: 600;
+    border-bottom: 3px solid #000;
+    background: transparent;
+  }
+  
+  /* Ads/Trending (col-3) */
+  .profile-ads {
+    padding: 1rem;
+  }
+  
+  .profile-ads .sticky-top {
+    top: 1rem;
+  }
+  
+  .profile-ads .card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+    }

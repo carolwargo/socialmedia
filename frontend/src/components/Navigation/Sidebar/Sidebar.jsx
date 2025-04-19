@@ -1,11 +1,11 @@
-// frontend/src/components/Sidebar/Sidebar.jsx
+// frontend/src/components/Navigation/Sidebar/Sidebar.jsx
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as bootstrap from 'bootstrap';
+import GirlCamera from '../../../assets/images/GirlCamera.png'; // Placeholder image  
+import { AuthContext } from '../../../context/AuthContext';
 import './Sidebar.css';
-import GirlCamera from '../../assets/images/GirlCamera.png';
-import { AuthContext } from '../../context/AuthContext';
 
 const navItems = [
   { to: '/home', icon: 'bi-house-door', label: 'Home', ariaLabel: 'Go to home page' },
@@ -22,18 +22,26 @@ const navItems = [
 
 const Sidebar = () => {
   const { user, loading, logout } = useContext(AuthContext);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(window.innerWidth <= 768);
   const navigate = useNavigate();
 
   useEffect(() => {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     const tooltips = Array.from(tooltipTriggerList).map((el) => new bootstrap.Tooltip(el));
     return () => tooltips.forEach((tooltip) => tooltip.dispose());
+  }, [isCollapsed]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsCollapsed(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const handleLogout = async () => {
     try {
-      await logout(); // Calls AuthContext's logout (hits /api/auth/logout)
+      await logout();
       navigate('/login');
     } catch (err) {
       console.error('Logout failed:', err);

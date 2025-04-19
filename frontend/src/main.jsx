@@ -5,7 +5,7 @@ import { StrictMode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
+import './styles/global.css';
 import App from './App';
 
 const rootElement = document.getElementById('root');

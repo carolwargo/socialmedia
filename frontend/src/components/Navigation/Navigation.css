@@ -1,0 +1,5 @@
+/* frontend/src/components/Navigation/Navigation.css */
+.navbar {
+    z-index: 999; /* Below sidebar (1000) */
+    margin-bottom: 1rem;
+  }
