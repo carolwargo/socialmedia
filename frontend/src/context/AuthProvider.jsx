@@ -25,33 +25,6 @@ export const AuthProvider = ({ children }) => {
     fetchUser();
   }, []);
 
-  const login = async (email, password) => {
-    try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, { email, password });
-      localStorage.setItem('token', res.data.token);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
-      setUser(res.data.user);
-    } catch (err) {
-      throw err.response?.data?.message || 'Login failed';
-    }
-  };
-
-  const register = async (name, handle, email, password) => {
-    try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, {
-        name,
-        handle,
-        email,
-        password,
-      });
-      localStorage.setItem('token', res.data.token);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
-      setUser(res.data.user);
-    } catch (err) {
-      throw err.response?.data?.message || 'Registration failed';
-    }
-  };
-
   const logout = async () => {
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`);
@@ -64,7 +37,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, loading, login, register, logout }}>
+    <AuthContext.Provider value={{ user, setUser, loading, logout }}>
       {children}
     </AuthContext.Provider>
   );

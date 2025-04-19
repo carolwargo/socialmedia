@@ -1,11 +1,11 @@
-// src/main.jsx
+// frontend/src/main.jsx
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { StrictMode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/global.css';
+import './index.css';
 import App from './App';
 
 const rootElement = document.getElementById('root');

@@ -1,4 +1,4 @@
-// src/App.jsx
+// frontend/src/App.jsx
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -14,12 +14,16 @@ import Leads from './pages/Leads';
 import Products from './pages/Products';
 import Orders from './pages/Orders';
 import Settings from './pages/Settings';
-import Post from './pages/Post'; // Your requested import
+import Post from './pages/Post';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 const App = () => {
   return (
     <ErrorBoundary>
       <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/" element={<Layout />}>
           <Route path="home" element={<Home />} />
           <Route path="explore" element={<div className="p-4">Explore Page</div>} />
@@ -36,7 +40,6 @@ const App = () => {
           <Route path="settings" element={<Settings />} />
           <Route path="post" element={<Post />} />
         </Route>
-        <Route path="/logout" element={<div className="p-4">Logout Page</div>} />
       </Routes>
     </ErrorBoundary>
   );
