@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import ProfilePosts from './pages/Profile/ProfilePosts';
+import ProfileSettings from './pages/Profile/ProfileSettings';
+import Notifications from './pages/Notifications';
+import Messages from './pages/Messages';
+import Network from './pages/Network';
+import Leads from './pages/Leads';
+import Products from './pages/Products';
+import Orders from './pages/Orders';
+import Settings from './pages/Settings';
+import Post from './pages/Post'; // Your requested import
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <ErrorBoundary>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="home" element={<Home />} />
+          <Route path="explore" element={<div className="p-4">Explore Page</div>} />
+          <Route path="notifications" element={<Notifications />} />
+          <Route path="messages" element={<Messages />} />
+          <Route path="network" element={<Network />} />
+          <Route path="leads" element={<Leads />} />
+          <Route path="products" element={<Products />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="profile" element={<Profile />}>
+            <Route path="posts" element={<ProfilePosts />} />
+            <Route path="settings" element={<ProfileSettings />} />
+          </Route>
+          <Route path="settings" element={<Settings />} />
+          <Route path="post" element={<Post />} />
+        </Route>
+        <Route path="/logout" element={<div className="p-4">Logout Page</div>} />
+      </Routes>
+    </ErrorBoundary>
+  );
+};
 
-export default App
+export default App;

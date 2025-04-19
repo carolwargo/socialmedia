@@ -1,0 +1,113 @@
+/* Sidebar.css */
+.sidebar {
+    position: fixed; /* Fix sidebar to the viewport */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full viewport height */
+    width: 250px; /* Fixed width */
+    background-color: #fff;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Scroll if content overflows */
+    z-index: 1000; /* Ensure sidebar is above other content */
+  }
+  
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 1rem; /* Prevent content from sticking to bottom */
+  }
+  
+  .brand {
+    padding: 0 1rem;
+  }
+  
+  /* Navigation */
+  .custom-nav .nav-item {
+    margin-bottom: 0.25rem;
+  }
+  
+  .custom-nav .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .custom-nav .nav-link i {
+    font-size: 1.3rem;
+    width: 1.5rem;
+    text-align: center;
+  }
+  
+  .custom-nav .nav-link:hover {
+    background-color: #e2e2e2;
+    color: #000;
+  }
+  
+  .custom-nav .nav-link.active {
+    background-color: #000;
+    color: #fff !important;
+  }
+  
+  /* Post Button */
+  .custom-nav .btn {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  
+  /* Profile Dropdown */
+  .dropdown .row {
+    cursor: pointer;
+  }
+  
+  .dropdown .rounded-circle {
+    object-fit: cover;
+  }
+  
+  .dropdown-menu {
+    min-width: 150px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 80px;
+    }
+  
+    .custom-nav .nav-link span {
+      display: none; /* Hide text on mobile */
+    }
+  
+    .custom-nav .nav-link i {
+      font-size: 1.5rem;
+    }
+  
+    .brand span {
+      display: none; /* Hide brand text on mobile */
+    }
+  
+    .dropdown .col-6 {
+      display: none; /* Hide username text */
+    }
+  
+    .dropdown .col-3 {
+      flex: 1;
+      text-align: center;
+    }
+  }
+  
+  /* Main content offset */
+  main {
+    margin-left: 250px; /* Offset main content by sidebar width */
+    height: 100vh;
+    overflow-y: auto; /* Allow main content to scroll */
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      margin-left: 80px; /* Smaller offset for mobile */
+    }
+  }

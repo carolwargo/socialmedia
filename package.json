@@ -2,20 +2,24 @@
   "name": "socialmedia",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/carolwargo/socialmedia.git"
+    "start": "node api/server.js",
+    "index": "nodemon",
+    "client": "npm start --prefix client",
+    "server": "nodemon api/server.js",
+    "seed": "node api/seeds.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/carolwargo/socialmedia/issues"
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9"
   },
-  "homepage": "https://github.com/carolwargo/socialmedia#readme"
+  "dependencies": {
+    "bootstrap-icons": "^1.11.3"
+  }
 }
